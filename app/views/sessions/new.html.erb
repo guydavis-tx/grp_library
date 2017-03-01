@@ -1,0 +1,33 @@
+
+<div class="text-center">
+<h1>Library Login</h1>
+
+</div>
+    <div class="container">
+<%= form_tag("/login", method: :post) do %>
+    <% if @error.present? %>
+      <div id="error_explanation">
+        <h2> An error prohibited this post from being saved:</h2>
+        <ul>
+          <li><%= @error %></li>
+        </ul>
+    </div>
+    <% end %>
+    <fieldset>
+        <div class="well">
+            <%= label_tag :email %>
+            <%= text_field_tag :email %>
+        </div>
+    <br>
+        <div class="well">
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+        </div>
+    </fieldset>
+    
+        <%= submit_tag 'Login', class: 'btn btn-default' %>
+
+        <%= link_to 'Register', new_user_path, class: 'btn btn-default' %>
+    </div>
+
+<% end %>
